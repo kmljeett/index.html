@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #e6e6e6;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,41 +18,40 @@
 
         .container {
             background-color: #ffffff;
-            width: 750px;
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 780px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             box-sizing: border-box;
+            border: 1px solid #ccc;
         }
 
         /* Header Layout */
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 10px;
-        }
-
-        .logo {
-            width: 80px;
-            height: auto;
-            margin-right: 20px;
-        }
-
-        .title-container {
+        .header-wrapper {
+            position: relative;
             text-align: center;
-            flex-grow: 1;
+            margin-bottom: 15px;
         }
 
-        .title-container h1 {
-            color: #b31217;
-            font-size: 22px;
+        .logo-box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .title-main {
+            color: #e60000;
+            font-size: 24px;
             margin: 0;
             font-weight: bold;
-            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .title-container h2 {
-            color: #b31217;
+        .title-session {
+            color: #b30000;
             font-size: 18px;
             margin: 5px 0 0 0;
             font-weight: bold;
@@ -60,46 +59,47 @@
 
         .sub-header {
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: bold;
-            color: #1a2b4c;
-            margin-top: 15px;
-            margin-bottom: 10px;
+            color: #002244;
+            margin-top: 20px;
+            margin-bottom: 15px;
         }
 
         .divider {
             border: 0;
             height: 1.5px;
-            background-color: #1a2b4c;
-            margin-bottom: 20px;
+            background-color: #002244;
+            margin-bottom: 25px;
         }
 
         /* Main Content Layout */
         .content {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
         }
 
         .details-table {
-            width: 70%;
+            width: 72%;
             border-collapse: collapse;
         }
 
         .details-table td {
-            padding: 6px 0;
-            font-size: 13px;
+            padding: 7px 0;
+            font-size: 14px;
             vertical-align: top;
         }
 
         .details-table td.label {
             font-weight: bold;
-            color: #333;
-            width: 40%;
+            color: #111;
+            width: 42%;
         }
 
         .details-table td.value {
-            color: #111;
-            width: 60%;
+            color: #333;
+            width: 58%;
         }
 
         /* Photo and Signature Section */
@@ -113,13 +113,17 @@
 
         .photo-box {
             width: 140px;
-            height: 160px;
-            border: 1px solid #333;
+            height: 175px;
+            border: 1px solid #444;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
             background-color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            color: #222;
+            text-align: center;
+            overflow: hidden;
         }
 
         .photo-box img {
@@ -130,13 +134,16 @@
 
         .signature-box {
             width: 140px;
-            height: 45px;
-            border: 1px solid #333;
+            height: 50px;
+            border: 1px solid #444;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
             background-color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            color: #222;
+            overflow: hidden;
         }
 
         .signature-box img {
@@ -148,10 +155,12 @@
         /* Footer Verified Status */
         .verified-text {
             text-align: center;
-            color: #b31217;
-            font-size: 24px;
+            color: #b30000;
+            font-size: 26px;
             font-weight: bold;
-            margin-top: 25px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -159,12 +168,12 @@
 
     <div class="container">
         <!-- Header Section -->
-        <div class="header">
-            <img src="https://via.placeholder.com/80x100?text=DAV+Logo" alt="DAVC Logo" class="logo">
-            <div class="title-container">
-                <h1>DAV COLLEGE, SECTOR 10, CHANDIGARH</h1>
-                <h2>Session : 2026-2027</h2>
+        <div class="header-wrapper">
+            <div class="logo-box">
+                DAVCS<br>Logo
             </div>
+            <h1 class="title-main">DAV COLLEGE, SECTOR 10, CHANDIGARH</h1>
+            <h2 class="title-session">Session : 2026-2027</h2>
         </div>
 
         <div class="sub-header">
@@ -220,11 +229,11 @@
 
             <!-- Photo & Signature Box -->
             <div class="media-box">
-                <div class="photo-box">
-                    <img id="student_photo" src="https://via.placeholder.com/140x160?text=Photo" alt="Student Photo">
+                <div class="photo-box" id="photo_container">
+                    Student Photo
                 </div>
-                <div class="signature-box">
-                    <img id="student_sig" src="https://via.placeholder.com/140x45?text=Signature" alt="Signature">
+                <div class="signature-box" id="sig_container">
+                    Signature
                 </div>
             </div>
         </div>
@@ -234,11 +243,11 @@
             Verified
         </div>
 
-        <hr class="divider" style="margin-top: 15px;">
+        <hr class="divider">
     </div>
 
     <script>
-        // Updated Student Database Dictionary
+        // Student Database Dictionary
         const studentDatabase = {
             "17153": {
                 enrollment: "-12313",
@@ -251,34 +260,39 @@
                 father_mobile: "9817102946",
                 p_address: "LOGHARH PINJORE",
                 c_address: "LOGHARH PINJORE",
-                photo: "https://via.placeholder.com/140x160?text=Jatin", 
-                signature: "https://via.placeholder.com/140x45?text=Signature" 
-            },
-            
-            
+                photo: "", // Put image link here if available e.g., "photo.jpg"
+                signature: "" // Put signature link here if available
+            }
         };
 
-        // Extract Roll Number from URL query parameter (e.g. ?roll=17153)
+        // Fetch roll number from URL parameter, default to 17153 if none specified
         const urlParams = new URLSearchParams(window.location.search);
-        const rollNo = urlParams.get('roll');
+        let rollNo = urlParams.get('roll');
 
-        if (rollNo && studentDatabase[rollNo]) {
-            const data = studentDatabase[rollNo];
-            document.getElementById('enrollment').innerText = data.enrollment;
-            document.getElementById('roll').innerText = data.roll;
-            document.getElementById('class').innerText = data.class;
-            document.getElementById('name').innerText = data.name;
-            document.getElementById('father').innerText = data.father;
-            document.getElementById('mother').innerText = data.mother;
-            document.getElementById('mobile').innerText = data.mobile;
-            document.getElementById('father_mobile').innerText = data.father_mobile;
-            document.getElementById('p_address').innerText = data.p_address;
-            document.getElementById('c_address').innerText = data.c_address;
-            
-            if (data.photo) document.getElementById('student_photo').src = data.photo;
-            if (data.signature) document.getElementById('student_sig').src = data.signature;
-        } else {
-            document.querySelector('.container').innerHTML = "<h2 style='text-align:center; color:red; margin-top:50px;'>Student Not Found</h2>";
+        if (!rollNo || !studentDatabase[rollNo]) {
+            rollNo = "17153";
+        }
+
+        const data = studentDatabase[rollNo];
+        document.getElementById('enrollment').innerText = data.enrollment;
+        document.getElementById('roll').innerText = data.roll;
+        document.getElementById('class').innerText = data.class;
+        document.getElementById('name').innerText = data.name;
+        document.getElementById('father').innerText = data.father;
+        document.getElementById('mother').innerText = data.mother;
+        document.getElementById('mobile').innerText = data.mobile;
+        document.getElementById('father_mobile').innerText = data.father_mobile;
+        document.getElementById('p_address').innerText = data.p_address;
+        document.getElementById('c_address').innerText = data.c_address;
+        
+        // Handle photo display
+        if (data.photo) {
+            document.getElementById('photo_container').innerHTML = `<img src="${data.photo}" alt="Student Photo">`;
+        }
+        
+        // Handle signature display
+        if (data.signature) {
+            document.getElementById('sig_container').innerHTML = `<img src="${data.signature}" alt="Signature">`;
         }
     </script>
 </body>
