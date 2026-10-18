@@ -44,7 +44,7 @@
         }
 
         .title-container h1 {
-            color: #ff3f3f;
+            color: #b31217;
             font-size: 22px;
             margin: 0;
             font-weight: bold;
@@ -160,8 +160,7 @@
     <div class="container">
         <!-- Header Section -->
         <div class="header">
-            <!-- Replace 'davc_logo.png' with your logo image path -->
-            <img src="c:\Users\PC\OneDrive\Pictures\Screenshots\Screenshot 2026-10-16 230309.png" alt="DAVC Logo" class="logo">
+            <img src="https://via.placeholder.com/80x100?text=DAV+Logo" alt="DAVC Logo" class="logo">
             <div class="title-container">
                 <h1>DAV COLLEGE, SECTOR 10, CHANDIGARH</h1>
                 <h2>Session : 2026-2027</h2>
@@ -222,10 +221,10 @@
             <!-- Photo & Signature Box -->
             <div class="media-box">
                 <div class="photo-box">
-                    <img id="student_photo" src="c:\Users\PC\OneDrive\Pictures\Screenshots\Screenshot 2026-10-16 230407.png" alt="Student Photo">
+                    <img id="student_photo" src="https://via.placeholder.com/140x160?text=Photo" alt="Student Photo">
                 </div>
                 <div class="signature-box">
-                    <img id="student_sig" src="c:\Users\PC\OneDrive\Pictures\Screenshots\Screenshot 2026-10-16 230437.png" alt="Signature">
+                    <img id="student_sig" src="https://via.placeholder.com/140x45?text=Signature" alt="Signature">
                 </div>
             </div>
         </div>
@@ -239,8 +238,22 @@
     </div>
 
     <script>
-        // Student Database Dictionary
+        // Updated Student Database Dictionary
         const studentDatabase = {
+            "17153": {
+                enrollment: "-12313",
+                roll: "17153",
+                class: "BSC PART II",
+                name: "JATIN",
+                father: "JAWINDER",
+                mother: "RANI",
+                mobile: "9817102946",
+                father_mobile: "9817102946",
+                p_address: "LOGHARH PINJORE",
+                c_address: "LOGHARH PINJORE",
+                photo: "https://via.placeholder.com/140x160?text=Jatin", 
+                signature: "https://via.placeholder.com/140x45?text=Signature" 
+            },
             "17145": {
                 enrollment: "78022",
                 roll: "17145",
@@ -252,26 +265,12 @@
                 father_mobile: "N/A",
                 p_address: "CHANDIGARH",
                 c_address: "CHANDIGARH",
-                photo: "https://via.placeholder.com/140x160", // Image URL for photo
-                signature: "https://via.placeholder.com/140x45" // Image URL for signature
-            },
-            "17142": {
-                enrollment: "78022",
-                roll: "17142",
-                class: "BSC-PART I",
-                name: "RAM KUMAR",
-                father: "XYZ",
-                mother: "XYS",
-                mobile: "9216197660",
-                father_mobile: "9041080599",
-                p_address: "GUJJAR COLONY RAIPUR RANI PANCHKULA",
-                c_address: "GUJJAR COLONY RAIPUR RANI PANCHKULA",
-                photo: "https://via.placeholder.com/140x160",
-                signature: "https://via.placeholder.com/140x45"
+                photo: "https://via.placeholder.com/140x160", 
+                signature: "https://via.placeholder.com/140x45" 
             }
         };
 
-        // Extract Roll Number from URL query parameter (e.g. ?roll=17145)
+        // Extract Roll Number from URL query parameter (e.g. ?roll=17153)
         const urlParams = new URLSearchParams(window.location.search);
         const rollNo = urlParams.get('roll');
 
@@ -290,6 +289,8 @@
             
             if (data.photo) document.getElementById('student_photo').src = data.photo;
             if (data.signature) document.getElementById('student_sig').src = data.signature;
+        } else {
+            document.querySelector('.container').innerHTML = "<h2 style='text-align:center; color:red; margin-top:50px;'>Student Not Found</h2>";
         }
     </script>
 </body>
