@@ -254,20 +254,8 @@
                 photo: "https://via.placeholder.com/140x160?text=Jatin", 
                 signature: "https://via.placeholder.com/140x45?text=Signature" 
             },
-            "17145": {
-                enrollment: "78022",
-                roll: "17145",
-                class: "BSC-PART I",
-                name: "GEETANJALI",
-                father: "GURDIAL SINGH",
-                mother: "N/A",
-                mobile: "9216197660",
-                father_mobile: "N/A",
-                p_address: "CHANDIGARH",
-                c_address: "CHANDIGARH",
-                photo: "https://via.placeholder.com/140x160", 
-                signature: "https://via.placeholder.com/140x45" 
-            }
+            
+            
         };
 
         // Extract Roll Number from URL query parameter (e.g. ?roll=17153)
